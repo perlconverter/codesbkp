@@ -1,0 +1,4 @@
+private static Date parseDate ( String s ) { for ( DateFormat currentFormat : DATE_FORMATS ) { try { return currentFormat . parse ( s ) ; } catch ( ParseException e ) { // ▁ continue ENDCOM } } return null ; }
+@ BeforeClass public static void initTestData ( ) throws IOException { SjukfallIntygGenerator generator = new SjukfallIntygGenerator ( LOCATION_INTYGSDATA ) ; intygDataList = generator . generate ( ) . get ( ) ; assertTrue ( " Expected ▁ 16 ▁ but ▁ was ▁ " + intygDataList . size ( ) , intygDataList . size ( ) == 16 ) ; }
+private static void assertStartDate ( SjukfallIntyg intygsData , String datum ) { assertTrue ( intygsData . getStartDatum ( ) . equals ( LocalDate . parse ( datum ) ) ) ; }
+private static void assertEndDate ( SjukfallIntyg intygsData , String datum ) { assertTrue ( intygsData . getSlutDatum ( ) . equals ( LocalDate . parse ( datum ) ) ) ; }
